@@ -1,0 +1,8 @@
+select y.country, y.cnt
+from
+(select x.country,x.cnt,avg(x.cnt) over() as average 
+from
+(select country,count(*) as cnt from movies
+group by country) x
+) y
+where y.cnt>y.average

@@ -1,0 +1,2 @@
+select country, title, year_released, min(year_released) over (partition by country) earliest_year
+from movies
